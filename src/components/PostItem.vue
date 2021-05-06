@@ -3,8 +3,8 @@
     <p class="post__title">{{ post.title | capitalize }}</p>
     <small>{{ post.body | preview | capitalize }}</small>
     <div class="post__details">
-      <a>See comments...</a>
-      <small>Comments ( {{ comments.length }} )</small>
+      <a @click="$emit('click', post.id)">See comments...</a>
+      <small>Comments ( {{ commentsSize }} )</small>
     </div>
   </div>
 </template>
@@ -20,9 +20,9 @@ export default {
       type: Object,
       required: true
     },
-    comments: {
-      type: Array,
-      default: () => []
+    commentsSize: {
+      type: Number,
+      default: 0
     }
   }
 }
