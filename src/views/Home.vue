@@ -1,6 +1,11 @@
 <template>
   <div class="home">
-    <PostItem v-for="post in posts" :key="post.id" :post="post" :commentsSize="commentsSize(post.id)"/>
+    <PostItem
+      v-for="post in posts"
+      :key="post.id"
+      :post="post"
+      :commentsSize="commentsSize(post.id)"
+      @click="showComments"/>
   </div>
 </template>
 
@@ -28,6 +33,9 @@ export default {
     ...mapActions(['getPosts', 'getComments']),
     commentsSize (postId) {
       return this.comments.filter(comm => comm.postId === postId).length
+    },
+    showComments (postId) {
+      this.$router.push(`/post/comments/${postId}`)
     }
   }
 }
