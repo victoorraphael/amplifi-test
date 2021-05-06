@@ -1,15 +1,23 @@
 <template>
   <section>
-    <div class="post__detail">
-      <p class="post__detail__title">{{ post.title | capitalize }}</p>
-      <p class="post__detail__body">{{ post.body | capitalize }}</p>
+    <div v-if="comments.length > 0">
+      <div class="post__detail">
+        <p class="post__detail__title">{{ post.title | capitalize }}</p>
+        <p class="post__detail__body">{{ post.body | capitalize }}</p>
+      </div>
+      <span class="section__title">Comments</span>
+      <CommentItem
+        v-for="comm in comments"
+        :key="comm.id"
+        :comment="comm"
+      />
     </div>
-    <span class="section__title">Comments</span>
-    <CommentItem
-      v-for="comm in comments"
-      :key="comm.id"
-      :comment="comm"
-    />
+    <div v-else>
+      <p>Ooops... ocorreu um erro</p>
+    </div>
+    <div class="btn-container">
+      <button class="button" @click="back">Voltar</button>
+    </div>
   </section>
 </template>
 
@@ -40,6 +48,9 @@ export default {
     },
     filterComments () {
       this.comments = this.$store.getters.getCommentsById(parseInt(this.$props.postId))
+    },
+    back () {
+      this.$router.push('/')
     }
   }
 }
@@ -74,4 +85,21 @@ section {
 .comment + .comment {
   margin-top: 10px;
 }
+
+.btn-container {
+  display: flex;
+  justify-content: flex-end;
+
+  .button {
+    padding: 10px 50px;
+    margin-top: 20px;
+    border-radius: 20px;
+    outline: none;
+    border: none;
+    background-color: #854cf0;
+    color: #FFF;
+    font-size: 1rem;
+  }
+}
+
 </style>
