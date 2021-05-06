@@ -12,7 +12,7 @@ const routes = [
     component: Home
   },
   {
-    path: '/posts/comments/:postId',
+    path: '/post/comments/:postId',
     name: 'PostComments',
     component: PostComments
   }
