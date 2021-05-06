@@ -9,11 +9,11 @@ export default new Vuex.Store({
     comments: []
   },
   getters: {
-    getPosts (state) {
-      return Object.assign([], state.posts)
+    getPostById: (state) => (id) => {
+      return state.posts.filter(post => post.id === id)
     },
-    getComments (state) {
-      return Object.assign([], state.comments)
+    getCommentsById: (state) => (id) => {
+      return state.comments.filter(comm => comm.postId === id)
     }
   },
   mutations: {
