@@ -8,6 +8,14 @@ export default new Vuex.Store({
     posts: [],
     comments: []
   },
+  getters: {
+    getPosts (state) {
+      return Object.assign([], state.posts)
+    },
+    getComments (state) {
+      return Object.assign([], state.comments)
+    }
+  },
   mutations: {
     savePosts (state, payload) {
       Object.assign(state.posts, payload)
