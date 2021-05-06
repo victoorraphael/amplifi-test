@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <PostItem v-for="post in posts" :key="post.id" :post="post"/>
+    <PostItem v-for="post in posts" :key="post.id" :post="post" :comments="commentsFiltered(post.id)"/>
   </div>
 </template>
 
@@ -25,7 +25,10 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['getPosts', 'getComments'])
+    ...mapActions(['getPosts', 'getComments']),
+    commentsFiltered (postId) {
+      return this.comments.filter(comm => comm.postId === postId)
+    }
   }
 }
 </script>
