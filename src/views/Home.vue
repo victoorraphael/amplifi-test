@@ -14,14 +14,18 @@ export default {
   mounted () {
     this.getPosts()
       .then(posts => (this.posts = [...posts]))
+
+    this.getComments()
+      .then(comments => (this.comments = [...comments]))
   },
   data () {
     return {
-      posts: []
+      posts: [],
+      comments: []
     }
   },
   methods: {
-    ...mapActions(['getPosts'])
+    ...mapActions(['getPosts', 'getComments'])
   }
 }
 </script>
