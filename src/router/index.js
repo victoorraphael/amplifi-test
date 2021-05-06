@@ -14,7 +14,8 @@ const routes = [
   {
     path: '/post/comments/:postId',
     name: 'PostComments',
-    component: PostComments
+    component: PostComments,
+    props: true
   }
 ]
 
