@@ -43,6 +43,9 @@ export default {
 
 <style lang="scss" scoped="true">
 .home {
+  max-width: 1000px;
+  margin: 0 auto;
+
   .post + .post {
     margin-top: 10px;
   }
