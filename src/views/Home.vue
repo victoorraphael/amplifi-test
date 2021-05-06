@@ -25,3 +25,11 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped="true">
+.home {
+  .post + .post {
+    margin-top: 10px;
+  }
+}
+</style>

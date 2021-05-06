@@ -16,4 +16,8 @@ $primary: #ECF1F7;
 body {
   background-color: $primary;
 }
+
+#app {
+  padding: 10px;
+}
 </style>
